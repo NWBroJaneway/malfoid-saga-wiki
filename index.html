@@ -1,0 +1,379 @@
+<title>Malfoid Saga Wiki</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="The Malfoid Saga Wiki: characters, places, magic and a full timeline of the Malfoid Saga.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&family=UnifrakturMaguntia&display=swap">
+<style>
+/* Layout: a bound wiki volume. Ink-ruled masthead, a parchment leaf for each page, a slim index of categories down the left, fandom-style infobox on the right. */
+:root {
+  --paper: #efe4cb;
+  --paper-deep: #e4d5b4;
+  --leaf: #f6eedb;
+  --ink: #2b2118;
+  --ink-soft: #5b4a39;
+  --rule: #b49a6e;
+  --emerald: #1f5a43;
+  --emerald-ink: #174634;
+  --gold: #9a7428;
+  --seal: #8e2a22;
+  --shadow: rgba(60, 40, 15, 0.18);
+  --link: #1f5a43;
+  --link-hover: #8e2a22;
+  --band-scarlet: #7f1f1a;
+  --band-emerald: #1f5a43;
+  --band-sapphire: #23406b;
+  --band-ochre: #8a6a1d;
+  --band-slate: #4a4a52;
+  --chip: rgba(31, 90, 67, 0.09);
+  --display: "UnifrakturMaguntia", "Old English Text MT", Georgia, serif;
+  --heading: "IM Fell English SC", "Cormorant SC", Georgia, serif;
+  --body: "EB Garamond", Garamond, "Times New Roman", serif;
+  --italic: "IM Fell English", "EB Garamond", Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #12161c; --paper-deep: #0c0f14; --leaf: #1a1f27; --ink: #e9dfc6; --ink-soft: #b9ac8f;
+    --rule: #4b4636; --emerald: #6fbf98; --emerald-ink: #8fd3b0; --gold: #d8b061; --seal: #e07a63;
+    --shadow: rgba(0, 0, 0, 0.45); --link: #8fd3b0; --link-hover: #f0c27a;
+    --band-scarlet: #b8483c; --band-emerald: #3f8f6a; --band-sapphire: #5d84bd; --band-ochre: #c39a3d; --band-slate: #8a8a96;
+    --chip: rgba(143, 211, 176, 0.10); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #12161c; --paper-deep: #0c0f14; --leaf: #1a1f27; --ink: #e9dfc6; --ink-soft: #b9ac8f;
+  --rule: #4b4636; --emerald: #6fbf98; --emerald-ink: #8fd3b0; --gold: #d8b061; --seal: #e07a63;
+  --shadow: rgba(0, 0, 0, 0.45); --link: #8fd3b0; --link-hover: #f0c27a;
+  --band-scarlet: #b8483c; --band-emerald: #3f8f6a; --band-sapphire: #5d84bd; --band-ochre: #c39a3d; --band-slate: #8a8a96;
+  --chip: rgba(143, 211, 176, 0.10); color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 5rem; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: var(--body); font-size: 1.125rem; line-height: 1.6;
+  background-image: radial-gradient(ellipse at 20% 0%, rgba(255,255,255,0.18), transparent 60%), radial-gradient(ellipse at 100% 100%, var(--shadow), transparent 55%);
+  background-attachment: fixed;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--paper-deep); }
+a { color: var(--link); text-decoration-color: color-mix(in srgb, var(--link) 40%, transparent); text-underline-offset: 0.18em; }
+a:hover { color: var(--link-hover); }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 2px; }
+.skip { position: absolute; left: -999px; top: 0; }
+.skip:focus { left: 1rem; z-index: 99; background: var(--leaf); padding: 0.5rem 1rem; }
+
+/* Masthead */
+.mast {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--paper-deep);
+  border-bottom: 3px double var(--rule); box-shadow: 0 2px 10px var(--shadow);
+}
+.mast-inner {
+  display: flex; align-items: center; gap: 0.9rem; max-width: 1240px; margin: 0 auto;
+  padding-block: 0.5rem; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.menu-btn { display: none; background: none; border: 1px solid var(--rule); color: var(--ink); font: inherit; border-radius: 4px; padding: 0.25rem 0.55rem; cursor: pointer; }
+.brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--ink); min-width: 0; }
+.brand svg { width: 2.4rem; height: 2.4rem; flex: none; }
+.brand-name { font-family: var(--display); font-size: 1.85rem; line-height: 1; white-space: nowrap; }
+.brand-sub { font-family: var(--heading); font-size: 0.78rem; letter-spacing: 0.12em; color: var(--ink-soft); display: block; margin-top: 0.15rem; }
+.search { margin-left: auto; position: relative; flex: 0 1 22rem; min-width: 0; }
+.search input {
+  width: 100%; font: inherit; font-size: 1rem; color: var(--ink); background: var(--leaf);
+  border: 1px solid var(--rule); border-radius: 999px; padding: 0.45rem 1rem 0.45rem 2.2rem;
+}
+.search svg { position: absolute; left: 0.75rem; top: 50%; translate: 0 -50%; width: 1rem; height: 1rem; color: var(--ink-soft); }
+.suggest { position: absolute; top: calc(100% + 4px); left: 0; right: 0; background: var(--leaf); border: 1px solid var(--rule); border-radius: 8px; box-shadow: 0 8px 22px var(--shadow); list-style: none; margin: 0; padding: 0.3rem; max-height: 60vh; overflow-y: auto; }
+.suggest li a { display: block; padding: 0.35rem 0.6rem; border-radius: 5px; text-decoration: none; color: var(--ink); }
+.suggest li a:hover, .suggest li a.active { background: var(--chip); }
+.suggest small { color: var(--ink-soft); font-family: var(--italic); font-style: italic; margin-left: 0.4rem; }
+.theme-btn { background: none; border: 1px solid var(--rule); color: var(--ink); border-radius: 999px; width: 2.2rem; height: 2.2rem; cursor: pointer; flex: none; display: grid; place-items: center; }
+.theme-btn svg { width: 1.1rem; height: 1.1rem; }
+
+/* Frame */
+.frame {
+  display: grid; grid-template-columns: 15rem minmax(0, 1fr); gap: 2rem; max-width: 1240px; margin: 0 auto;
+  padding-block: 1.6rem 3rem; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.nav { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 4.6rem); align-self: start; max-height: calc(100vh - 6rem); overflow-y: auto; font-size: 1rem; }
+.nav h2 { font-family: var(--heading); font-weight: 400; font-size: 0.85rem; letter-spacing: 0.14em; color: var(--gold); margin: 1.2rem 0 0.35rem; border-bottom: 1px solid var(--rule); padding-bottom: 0.2rem; }
+.nav h2:first-child { margin-top: 0; }
+.nav ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.1rem; }
+.nav a { display: flex; justify-content: space-between; gap: 0.5rem; text-decoration: none; color: var(--ink); padding: 0.18rem 0.5rem; border-radius: 4px; }
+.nav a:hover { background: var(--chip); color: var(--ink); }
+.nav a.here { background: var(--chip); color: var(--emerald-ink); font-weight: 600; }
+.nav .count { color: var(--ink-soft); font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+
+/* The leaf */
+.leaf {
+  background: var(--leaf); border: 1px solid var(--rule); border-radius: 3px; min-width: 0;
+  box-shadow: 0 1px 0 var(--rule), 0 14px 34px -18px var(--shadow);
+  padding: clamp(1.1rem, 3vw, 2.4rem) clamp(1.1rem, 3.5vw, 3rem) 2.4rem;
+}
+.crumbs { font-family: var(--heading); font-size: 0.8rem; letter-spacing: 0.1em; color: var(--ink-soft); margin-bottom: 0.4rem; }
+.crumbs a { color: var(--ink-soft); }
+h1.title { font-family: var(--heading); font-weight: 400; font-size: clamp(2rem, 4.6vw, 2.9rem); line-height: 1.1; margin: 0 0 0.25rem; text-wrap: balance; }
+.aka { font-family: var(--italic); font-style: italic; color: var(--ink-soft); margin: 0 0 1.1rem; }
+.leaf h2 { font-family: var(--heading); font-weight: 400; font-size: 1.55rem; margin: 2rem 0 0.6rem; border-bottom: 1px solid var(--rule); padding-bottom: 0.15rem; text-wrap: balance; }
+.leaf h3 { font-family: var(--heading); font-weight: 400; font-size: 1.2rem; margin: 1.4rem 0 0.4rem; color: var(--emerald-ink); }
+.leaf p { margin: 0 0 0.85rem; max-width: 70ch; }
+.lede::first-letter { font-family: var(--display); float: left; font-size: 3.6em; line-height: 0.82; padding: 0.06em 0.12em 0 0; color: var(--emerald); }
+.leaf ul.facts { margin: 0 0 1rem; padding-left: 1.2rem; max-width: 70ch; }
+.leaf ul.facts li { margin-bottom: 0.35rem; }
+blockquote { margin: 1.2rem 0; padding: 0.6rem 1.1rem; border-left: 3px solid var(--gold); font-family: var(--italic); font-style: italic; font-size: 1.15rem; max-width: 62ch; }
+blockquote cite { display: block; font-style: normal; font-family: var(--heading); font-size: 0.85rem; letter-spacing: 0.08em; color: var(--ink-soft); margin-top: 0.3rem; }
+.src { font-family: var(--heading); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--ink-soft); white-space: nowrap; }
+.chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.2rem 0 1rem; padding: 0; list-style: none; }
+.chips a, .chips span { display: inline-block; font-size: 0.92rem; padding: 0.08rem 0.6rem; border-radius: 999px; background: var(--chip); border: 1px solid color-mix(in srgb, var(--rule) 60%, transparent); text-decoration: none; color: var(--ink); }
+
+/* Infobox */
+.article { display: grid; grid-template-columns: minmax(0, 1fr) 18.5rem; gap: 1.8rem; align-items: start; }
+.infobox { grid-column: 2; grid-row: 1 / span 20; border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); font-size: 0.98rem; overflow: hidden; }
+.infobox .band { height: 0.45rem; background: var(--band, var(--band-emerald)); }
+.infobox .ib-title { font-family: var(--heading); text-align: center; font-size: 1.2rem; padding: 0.6rem 0.8rem 0.2rem; }
+.infobox .ib-kind { text-align: center; font-family: var(--italic); font-style: italic; color: var(--ink-soft); padding-bottom: 0.5rem; border-bottom: 1px solid var(--rule); }
+.infobox dl { margin: 0; display: grid; grid-template-columns: 6.6rem minmax(0, 1fr); }
+.infobox dt { font-family: var(--heading); font-size: 0.82rem; letter-spacing: 0.06em; color: var(--ink-soft); padding: 0.45rem 0.6rem; border-bottom: 1px solid color-mix(in srgb, var(--rule) 45%, transparent); }
+.infobox dd { margin: 0; padding: 0.45rem 0.7rem 0.45rem 0; border-bottom: 1px solid color-mix(in srgb, var(--rule) 45%, transparent); overflow-wrap: anywhere; }
+.article-body { grid-column: 1; min-width: 0; }
+
+/* Banners on the front page */
+.banner { display: grid; grid-template-columns: 3.2rem minmax(0, 1fr); gap: 0.9rem; align-items: start; border: 1px solid var(--rule); border-radius: 4px; padding: 0.9rem 1rem; margin: 0 0 1rem; background: var(--paper); }
+.banner svg { width: 3.2rem; height: 3.2rem; }
+.banner h2 { margin: 0 0 0.25rem !important; border: 0 !important; padding: 0 !important; font-size: 1.2rem !important; }
+.banner p { margin: 0 0 0.4rem; }
+.banner.spoiler { border-color: color-mix(in srgb, var(--seal) 55%, var(--rule)); }
+.banner.spoiler h2 { color: var(--seal); }
+.hero { text-align: center; padding: 0.4rem 0 1.4rem; border-bottom: 3px double var(--rule); margin-bottom: 1.4rem; }
+.hero .eyebrow { font-family: var(--heading); letter-spacing: 0.2em; font-size: 0.85rem; color: var(--gold); }
+.hero h1 { font-family: var(--display); font-weight: 400; font-size: clamp(2.6rem, 7vw, 4.2rem); line-height: 1; margin: 0.3rem 0 0.4rem; }
+.hero p { margin: 0 auto; max-width: 56ch; font-family: var(--italic); font-style: italic; color: var(--ink-soft); }
+.shelf { display: grid; grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr)); gap: 1rem; margin: 0.6rem 0 1.4rem; }
+.book { display: flex; flex-direction: column; gap: 0.25rem; text-decoration: none; color: var(--ink); border: 1px solid var(--rule); border-radius: 3px; padding: 0.9rem 1rem 1rem; background: linear-gradient(180deg, color-mix(in srgb, var(--band, var(--band-emerald)) 14%, var(--paper)), var(--paper)); border-top: 0.4rem solid var(--band, var(--band-emerald)); }
+.book:hover { color: var(--ink); box-shadow: 0 6px 18px -8px var(--shadow); }
+.book .num { font-family: var(--heading); letter-spacing: 0.14em; font-size: 0.8rem; color: var(--ink-soft); }
+.book .bt { font-family: var(--heading); font-size: 1.15rem; line-height: 1.2; }
+.book .yrs { font-family: var(--italic); font-style: italic; color: var(--ink-soft); font-size: 0.95rem; }
+.book.future { opacity: 0.75; border-style: dashed; }
+.grid-cats { display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: 0.8rem; }
+.cat { text-decoration: none; color: var(--ink); border: 1px solid var(--rule); border-radius: 3px; padding: 0.7rem 0.9rem; background: var(--paper); display: grid; gap: 0.15rem; }
+.cat:hover { color: var(--ink); background: var(--chip); }
+.cat b { font-family: var(--heading); font-weight: 400; font-size: 1.1rem; }
+.cat span { color: var(--ink-soft); font-size: 0.95rem; }
+
+/* Lists */
+.index-list { columns: 2 18rem; column-gap: 2rem; list-style: none; padding: 0; margin: 0; }
+.index-list li { break-inside: avoid; padding: 0.2rem 0; border-bottom: 1px dotted color-mix(in srgb, var(--rule) 60%, transparent); }
+.index-list li small { color: var(--ink-soft); font-family: var(--italic); font-style: italic; }
+.letters { display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0 0 1rem; }
+.letters a { font-family: var(--heading); text-decoration: none; border: 1px solid var(--rule); border-radius: 3px; padding: 0.05rem 0.5rem; }
+.filter { font: inherit; font-size: 1rem; padding: 0.4rem 0.8rem; border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); color: var(--ink); width: min(100%, 24rem); margin: 0 0 1rem; }
+
+/* Timeline */
+.era { margin: 2rem 0 0.6rem; font-family: var(--heading); font-size: 1.35rem; color: var(--emerald-ink); border-bottom: 1px solid var(--rule); }
+.tl { list-style: none; margin: 0; padding: 0 0 0 1.2rem; border-left: 2px solid var(--rule); }
+.tl li { position: relative; padding: 0.35rem 0 0.75rem 1rem; }
+.tl li::before { content: ""; position: absolute; left: -1.62rem; top: 0.75rem; width: 0.7rem; height: 0.7rem; border-radius: 50%; background: var(--leaf); border: 2px solid var(--gold); }
+.tl .when { font-family: var(--heading); font-size: 0.86rem; letter-spacing: 0.08em; color: var(--gold); font-variant-numeric: tabular-nums; }
+.tl .what { font-weight: 600; }
+.tl .book-tag { font-family: var(--heading); font-size: 0.72rem; letter-spacing: 0.06em; margin-left: 0.4rem; padding: 0 0.4rem; border-radius: 999px; border: 1px solid var(--rule); color: var(--ink-soft); white-space: nowrap; }
+.tl-controls { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 1rem; }
+.tl-controls button { font-family: var(--heading); font-size: 0.85rem; letter-spacing: 0.06em; background: var(--paper); color: var(--ink); border: 1px solid var(--rule); border-radius: 999px; padding: 0.2rem 0.75rem; cursor: pointer; }
+.tl-controls button[aria-pressed="true"] { background: var(--emerald); color: var(--leaf); border-color: var(--emerald); }
+
+/* Chapters */
+.chapter { border-top: 1px dotted var(--rule); padding-top: 0.6rem; margin-top: 0.8rem; }
+.chapter h3 { margin-top: 0 !important; }
+.chapter h3 .n { color: var(--gold); margin-right: 0.4rem; }
+
+footer.foot { max-width: 1240px; margin: 0 auto; padding-block: 0 2.4rem; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); color: var(--ink-soft); font-size: 0.95rem; text-align: center; }
+footer.foot p { margin: 0.25rem auto; max-width: 70ch; }
+.loading { font-family: var(--italic); font-style: italic; color: var(--ink-soft); }
+
+@media (max-width: 1020px) {
+  .article { grid-template-columns: minmax(0, 1fr); }
+  .infobox { grid-column: 1; grid-row: auto; max-width: 26rem; }
+  .article-body { grid-column: 1; }
+}
+@media (max-width: 640px) {
+  .mast-inner { flex-wrap: wrap; row-gap: 0.45rem; }
+  .search { order: 3; flex: 1 1 100%; }
+  .theme-btn { margin-left: auto; }
+}
+@media (max-width: 820px) {
+  .frame { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+  .menu-btn { display: inline-block; }
+  .nav { position: fixed; z-index: 25; top: 0; bottom: 0; left: 0; width: min(19rem, 86vw); max-height: none; background: var(--paper-deep); border-right: 1px solid var(--rule); box-shadow: 4px 0 24px var(--shadow); padding: calc(env(safe-area-inset-top, 0px) + 1rem) 1rem calc(env(safe-area-inset-bottom, 0px) + 1rem) max(1rem, env(safe-area-inset-left, 0px)); translate: -105% 0; transition: translate 0.2s ease; }
+  .nav.open { translate: 0 0; }
+  .brand-sub { display: none; }
+  .brand-name { font-size: 1.45rem; }
+  .search { flex: 1 1 auto; }
+  body { font-size: 1.06rem; }
+}
+@media (prefers-reduced-motion: reduce) { .nav { transition: none; } }
+</style>
+
+<a class="skip" href="#main">Skip to the page</a>
+<header class="mast">
+  <div class="mast-inner">
+    <button class="menu-btn" id="menu-btn" aria-label="Open the index" aria-expanded="false">Index</button>
+    <a class="brand" href="#home" aria-label="Malfoid Saga Wiki, front page">
+      <svg viewBox="0 0 64 72" aria-hidden="true"><path d="M32 3 L59 12 V36 C59 53 47 64 32 69 C17 64 5 53 5 36 V12 Z" fill="var(--emerald)" stroke="var(--gold)" stroke-width="2.5"/><path d="M17 50 V22 L32 38 L47 22 V50" fill="none" stroke="var(--leaf)" stroke-width="4.2" stroke-linejoin="round" stroke-linecap="round"/><path d="M14 30 C22 24 26 34 33 30 C40 26 42 38 50 33 C54 31 55 28 53 26" fill="none" stroke="var(--gold)" stroke-width="2.6" stroke-linecap="round"/><circle cx="52.5" cy="25.5" r="1.6" fill="var(--gold)"/></svg>
+      <span><span class="brand-name">The Malfoid Saga</span><span class="brand-sub">An Encyclopaedia of the Series</span></span>
+    </a>
+    <div class="search" role="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search the wiki" autocomplete="off" aria-label="Search the wiki" aria-controls="suggest">
+      <ul class="suggest" id="suggest" hidden></ul>
+    </div>
+    <button class="theme-btn" id="theme-btn" aria-label="Switch between day and night">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3c-1 2.5-.5 6 2 8.5s6 3 8.5 2C21.6 18.4 17.2 22 12 22 6.5 22 2 17.5 2 12 2 6.8 5.6 2.4 12 3z"/></svg>
+    </button>
+  </div>
+</header>
+<div class="frame">
+  <nav class="nav" id="nav" aria-label="Wiki index"></nav>
+  <main class="leaf" id="main" tabindex="-1"><p class="loading">Opening the volume…</p></main>
+</div>
+<footer class="foot">
+  <p><b>Work in progress.</b> This wiki is subject to additions, edits and changes as the saga continues.</p>
+  <p>The Malfoid Saga is free, unofficial, non-profit fan fiction. Harry Potter and all related names belong to their owners; no claim is made on them.</p>
+</footer>
+<script>/*DATA*/</script>
+<script>
+(function () {
+  "use strict";
+  var D = null, BY = {}, ALIAS = [], main = document.getElementById("main"), nav = document.getElementById("nav");
+  var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+  var link = function (slug, text) { return '<a href="#' + slug + '">' + esc(text || (BY[slug] ? BY[slug].title : slug)) + "</a>"; };
+  var BAND = { scarlet: "--band-scarlet", emerald: "--band-emerald", sapphire: "--band-sapphire", ochre: "--band-ochre", slate: "--band-slate" };
+
+  function theme() {
+    var btn = document.getElementById("theme-btn");
+    try { var t = localStorage.getItem("msw-theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+    btn.addEventListener("click", function () {
+      var cur = document.documentElement.getAttribute("data-theme");
+      if (!cur) cur = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      var next = cur === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      try { localStorage.setItem("msw-theme", next); } catch (e) {}
+    });
+  }
+
+  function buildNav(current) {
+    var h = "";
+    D.nav.forEach(function (group) {
+      h += "<h2>" + esc(group.title) + "</h2><ul>";
+      group.items.forEach(function (it) {
+        h += '<li><a href="#' + it.slug + '"' + (it.slug === current ? ' class="here" aria-current="page"' : "") + "><span>" + esc(it.title) + "</span>" + (it.count != null ? '<span class="count">' + it.count + "</span>" : "") + "</a></li>";
+      });
+      h += "</ul>";
+    });
+    nav.innerHTML = h;
+  }
+
+  function infobox(p) {
+    if (!p.infobox || !p.infobox.length) return "";
+    var band = BAND[p.band] || "--band-emerald";
+    var h = '<aside class="infobox" style="--band: var(' + band + ')"><div class="band"></div><div class="ib-title">' + esc(p.title) + '</div><div class="ib-kind">' + esc(p.kind || "") + "</div><dl>";
+    p.infobox.forEach(function (row) { h += "<dt>" + esc(row[0]) + "</dt><dd>" + row[1] + "</dd>"; });
+    return h + "</dl></aside>";
+  }
+
+  function renderPage(p) {
+    var h = '<div class="crumbs">' + link("home", "Front page") + (p.cat ? " · " + link(p.cat, BY[p.cat] ? BY[p.cat].title : p.cat) : "") + "</div>";
+    h += '<h1 class="title">' + esc(p.title) + "</h1>";
+    if (p.aka) h += '<p class="aka">' + esc(p.aka) + "</p>";
+    h += '<div class="article">' + infobox(p) + '<div class="article-body">' + (p.html || "") + "</div></div>";
+    return h;
+  }
+
+  function show(slug) {
+    if (!slug || slug === "home") slug = "home";
+    var p = BY[slug];
+    if (!p) { main.innerHTML = '<h1 class="title">No such page</h1><p>Nothing in the wiki goes by that name yet. Try the search box, or the ' + link("a-to-z", "A to Z") + ".</p>"; buildNav(""); return; }
+    main.innerHTML = p.raw ? p.html : renderPage(p);
+    buildNav(slug);
+    document.title = (slug === "home" ? "" : p.title + " · ") + "Malfoid Saga Wiki";
+    if (p.after) after[p.after]();
+    nav.classList.remove("open");
+    document.getElementById("menu-btn").setAttribute("aria-expanded", "false");
+    window.scrollTo(0, 0);
+  }
+
+  var after = {
+    filter: function () {
+      var f = document.getElementById("list-filter"); if (!f) return;
+      f.addEventListener("input", function () {
+        var q = f.value.toLowerCase();
+        main.querySelectorAll(".index-list li").forEach(function (li) { li.hidden = q && li.getAttribute("data-k").indexOf(q) < 0; });
+      });
+    },
+    timeline: function () {
+      var bs = main.querySelectorAll(".tl-controls button");
+      bs.forEach(function (b) {
+        b.addEventListener("click", function () {
+          bs.forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+          var k = b.getAttribute("data-k");
+          main.querySelectorAll(".tl li").forEach(function (li) { li.hidden = k !== "all" && li.getAttribute("data-b") !== k; });
+          main.querySelectorAll(".era").forEach(function (e) {
+            var list = e.nextElementSibling, any = false;
+            list.querySelectorAll("li").forEach(function (li) { if (!li.hidden) any = true; });
+            e.hidden = !any; list.hidden = !any;
+          });
+        });
+      });
+    }
+  };
+
+  function search() {
+    var q = document.getElementById("q"), box = document.getElementById("suggest"), active = -1;
+    function results(s) {
+      s = s.trim().toLowerCase(); if (s.length < 2) return [];
+      var out = [], seen = {};
+      ALIAS.forEach(function (a) {
+        if (seen[a[1]]) return;
+        var i = a[0].indexOf(s);
+        if (i >= 0) { seen[a[1]] = 1; out.push([i === 0 ? 0 : 1, a[1], a[2]]); }
+      });
+      out.sort(function (x, y) { return x[0] - y[0] || BY[x[1]].title.localeCompare(BY[y[1]].title); });
+      return out.slice(0, 12);
+    }
+    function draw() {
+      var r = results(q.value);
+      if (!r.length) { box.hidden = true; return; }
+      box.innerHTML = r.map(function (x, i) { return '<li><a href="#' + x[1] + '"' + (i === active ? ' class="active"' : "") + ">" + esc(BY[x[1]].title) + (x[2] && x[2] !== BY[x[1]].title ? "<small>" + esc(x[2]) + "</small>" : "") + "<small>" + esc(BY[x[1]].kind || "") + "</small></a></li>"; }).join("");
+      box.hidden = false;
+    }
+    q.addEventListener("input", function () { active = -1; draw(); });
+    q.addEventListener("keydown", function (e) {
+      var items = box.querySelectorAll("a");
+      if (e.key === "ArrowDown") { active = Math.min(active + 1, items.length - 1); draw(); e.preventDefault(); }
+      else if (e.key === "ArrowUp") { active = Math.max(active - 1, 0); draw(); e.preventDefault(); }
+      else if (e.key === "Enter") { var r = results(q.value); if (r.length) { location.hash = r[Math.max(active, 0)][1]; box.hidden = true; q.blur(); } }
+      else if (e.key === "Escape") { box.hidden = true; }
+    });
+    box.addEventListener("click", function () { box.hidden = true; q.value = ""; });
+    document.addEventListener("click", function (e) { if (!e.target.closest(".search")) box.hidden = true; });
+  }
+
+  function start(data) {
+    D = data;
+    D.pages.forEach(function (p) {
+      BY[p.slug] = p;
+      ALIAS.push([p.title.toLowerCase(), p.slug, p.title]);
+      (p.aliases || []).forEach(function (a) { ALIAS.push([a.toLowerCase(), p.slug, a]); });
+    });
+    theme(); search();
+    document.getElementById("menu-btn").addEventListener("click", function () {
+      var open = nav.classList.toggle("open"); this.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    window.addEventListener("hashchange", function () { show(location.hash.slice(1)); });
+    show(location.hash.slice(1));
+  }
+
+  if (window.MSW_DATA) start(window.MSW_DATA);
+  else fetch("wiki-data.json").then(function (r) { return r.json(); }).then(start).catch(function () {
+    main.innerHTML = '<h1 class="title">The volume would not open</h1><p>The wiki’s pages could not be loaded. Please reload the page.</p>';
+  });
+})();
+</script>
