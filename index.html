@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Malfoid Saga Wiki</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="The Malfoid Saga Wiki: characters, places, magic and a full timeline of the Malfoid Saga.">
@@ -154,6 +159,22 @@ blockquote cite { display: block; font-style: normal; font-family: var(--heading
 .book .bt { font-family: var(--heading); font-size: 1.15rem; line-height: 1.2; }
 .book .yrs { font-family: var(--italic); font-style: italic; color: var(--ink-soft); font-size: 0.95rem; }
 .book.future { opacity: 0.75; border-style: dashed; }
+.read-cta { display: inline-flex; flex-direction: column; align-items: center; gap: 0.15rem; margin: 1.2rem auto 0; padding: 0.9rem 2rem 0.8rem; max-width: 100%; border-radius: 999px; background: var(--emerald); color: var(--leaf); border: 2px solid var(--gold); text-decoration: none; text-align: center; box-shadow: 0 10px 24px -12px var(--shadow); transition: transform 0.15s ease, filter 0.15s ease; }
+.read-cta:hover, .read-cta:focus-visible { color: var(--leaf); filter: brightness(1.08); transform: translateY(-2px); }
+.read-cta .rc-main { font-family: var(--heading); font-size: clamp(1.15rem, 3.2vw, 1.45rem); letter-spacing: 0.06em; line-height: 1.15; }
+.read-cta .rc-sub { font-family: var(--italic); font-style: italic; font-size: 0.92rem; opacity: 0.9; }
+.read-cta.small { margin: 0; padding: 0.7rem 1.4rem 0.6rem; }
+.read-cta.small .rc-main { font-size: 1.15rem; }
+.book.with-cover { padding: 0.6rem 0.6rem 0.9rem; }
+.book.with-cover .num, .book.with-cover .bt, .book.with-cover .yrs { padding: 0 0.35rem; }
+.book .cover, .book-cover { display: block; width: 100%; height: auto; aspect-ratio: 512 / 800; object-fit: cover; border-radius: 2px; box-shadow: 0 8px 18px -10px var(--shadow); margin-bottom: 0.45rem; }
+.book .cover.plate, .book-cover.plate { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; text-align: center; padding: 1rem; background: radial-gradient(circle at 50% 35%, color-mix(in srgb, var(--band, var(--band-slate)) 70%, #000), color-mix(in srgb, var(--band, var(--band-slate)) 35%, #000)); color: #f1e4c4; border: 1px solid color-mix(in srgb, var(--gold) 60%, transparent); }
+.plate .p-series { font-family: var(--heading); letter-spacing: 0.18em; font-size: 0.72rem; opacity: 0.85; }
+.plate .p-book { font-family: var(--display); font-size: 1.9rem; line-height: 1; }
+.plate .p-title { font-family: var(--italic); font-style: italic; font-size: 0.95rem; opacity: 0.9; }
+.book-head { display: grid; grid-template-columns: minmax(8rem, 12rem) auto; gap: 1.2rem; align-items: center; justify-content: start; margin: 0 0 1.4rem; }
+.book-head .book-cover { margin: 0; }
+@media (max-width: 540px) { .book-head { grid-template-columns: 1fr; justify-items: center; } .book-head .book-cover { max-width: 14rem; } }
 .grid-cats { display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: 0.8rem; }
 .cat { text-decoration: none; color: var(--ink); border: 1px solid var(--rule); border-radius: 3px; padding: 0.7rem 0.9rem; background: var(--paper); display: grid; gap: 0.15rem; }
 .cat:hover { color: var(--ink); background: var(--chip); }
@@ -212,6 +233,8 @@ footer.foot p { margin: 0.25rem auto; max-width: 70ch; }
 @media (prefers-reduced-motion: reduce) { .nav { transition: none; } }
 </style>
 
+</head>
+<body>
 <a class="skip" href="#main">Skip to the page</a>
 <header class="mast">
   <div class="mast-inner">
@@ -377,3 +400,6 @@ footer.foot p { margin: 0.25rem auto; max-width: 70ch; }
   });
 })();
 </script>
+
+</body>
+</html>
