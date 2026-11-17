@@ -159,6 +159,11 @@ blockquote cite { display: block; font-style: normal; font-family: var(--heading
 .book .bt { font-family: var(--heading); font-size: 1.15rem; line-height: 1.2; }
 .book .yrs { font-family: var(--italic); font-style: italic; color: var(--ink-soft); font-size: 0.95rem; }
 .book.future { opacity: 0.75; border-style: dashed; }
+.rec { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 0.8rem; margin: 0.4rem 0 1.4rem; }
+.rec-card { display: grid; gap: 0.2rem; align-content: start; text-decoration: none; color: var(--ink); border: 1px solid var(--rule); border-left: 0.35rem solid var(--gold); border-radius: 3px; padding: 0.7rem 0.9rem; background: var(--paper); }
+.rec-card:hover { color: var(--ink); background: var(--chip); }
+.rec-card b { font-family: var(--heading); font-weight: 400; font-size: 1.08rem; letter-spacing: 0.03em; }
+.rec-card span { font-family: var(--italic); font-style: italic; color: var(--ink-soft); font-size: 0.95rem; line-height: 1.35; }
 .read-cta { display: inline-flex; flex-direction: column; align-items: center; gap: 0.15rem; margin: 1.2rem auto 0; padding: 0.9rem 2rem 0.8rem; max-width: 100%; border-radius: 999px; background: var(--emerald); color: var(--leaf); border: 2px solid var(--gold); text-decoration: none; text-align: center; box-shadow: 0 10px 24px -12px var(--shadow); transition: transform 0.15s ease, filter 0.15s ease; }
 .read-cta:hover, .read-cta:focus-visible { color: var(--leaf); filter: brightness(1.08); transform: translateY(-2px); }
 .read-cta .rc-main { font-family: var(--heading); font-size: clamp(1.15rem, 3.2vw, 1.45rem); letter-spacing: 0.06em; line-height: 1.15; }
